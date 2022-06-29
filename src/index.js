@@ -193,7 +193,10 @@ const handleViewSubmission = async (payload, res) => {
   }
 }
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+  console.log('Express server listening on port 8000 in local mode');
+}
+app.listen(port);
 
-const server = app.listen(process.env.PORT || 5000, () => {
-  console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
-});
