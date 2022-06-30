@@ -83,7 +83,7 @@ const postAnnouncement = async (payload, announcement) => {
       title: announcement.title,
       details: announcement.details,
       requester: announcement.requester,
-      approver: announcement.approver
+      approver: payload.user.id
     }));
   })
 }
