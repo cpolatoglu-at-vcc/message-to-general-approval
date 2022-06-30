@@ -45,6 +45,7 @@ const requestAnnouncement = async (user, submission) => {
   let res = await callAPIMethodPost('conversations.open', {
     channel: 'C03MDHWFC9M'
   })
+  console.log (res);
   submission.requester = user.id;
   submission.channel = res.channel.id;
   await callAPIMethodPost('chat.postMessage', payloads.approve(submission));
