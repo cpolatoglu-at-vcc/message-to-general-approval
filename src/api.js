@@ -3,6 +3,7 @@
 const axios = require('axios');
 const payloads = require('./payloads');
 const apiUrl = 'https://slack.com/api';
+const approversChannelId = process.env.APPROVERS_CHANNEL;
 
 /**
  * helper function to call POST methods of Slack API
@@ -43,7 +44,7 @@ const getChannels = async (userId, channels, cursor) => {
 const requestAnnouncement = async (user, submission) => {
   // Send the approver a direct message with "Approve" and "Reject" buttons 
   submission.requester = user.id;
-  submission.channel = 'C03MDHWFC9M';
+  submission.channel = approversChannelId;
   await callAPIMethodPost('chat.postMessage', payloads.approve(submission));
 };
 

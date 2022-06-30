@@ -64,6 +64,7 @@ app.post('/interactions', async (req, res) => {
   if (!signature.isVerified(req)) return res.status(400).send();
 
   const payload = JSON.parse(req.body.payload);
+  console.log(payload);
 
   if (payload.type === 'block_actions') {
     // acknowledge the event before doing heavy-lifting on our servers
