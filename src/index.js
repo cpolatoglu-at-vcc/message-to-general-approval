@@ -179,7 +179,7 @@ const handleViewSubmission = async (payload, res) => {
       let announcement = {
         title: values.title.title_id.value,
         details: values.details.details_id.value,
-        approver: values.approver.approver_id.selected_user,
+        // approver: values.approver.approver_id.selected_user,
         channels: channels,
         channelString: channelString
       }
