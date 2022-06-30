@@ -178,23 +178,6 @@ module.exports = {
                         type: 'section',
                         text: {
                             type: 'mrkdwn',
-                            text: `*APPROVER*`
-                        }
-                    },
-                    {
-                        type: 'divider'
-                    },
-                    {
-                        type: 'section',
-                        text: {
-                            type: 'mrkdwn',
-                            text: `<@${context.announcement.approver}>`
-                        }
-                    },
-                    {
-                        type: 'section',
-                        text: {
-                            type: 'mrkdwn',
                             text: `*CHANNELS*`
                         }
                     },
