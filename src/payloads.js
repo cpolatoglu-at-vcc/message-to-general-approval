@@ -110,18 +110,6 @@ module.exports = {
                     }
                 },
                 {
-                    block_id: 'approver',
-                    type: 'input',
-                    label: {
-                        type: 'plain_text',
-                        text: 'Select approver'
-                    },
-                    element: {
-                        action_id: 'approver_id',
-                        type: 'users_select'
-                    }
-                },
-                {
                     block_id: 'channel',
                     type: 'input',
                     label: {

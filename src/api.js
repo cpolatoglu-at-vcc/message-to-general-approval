@@ -43,7 +43,7 @@ const getChannels = async (userId, channels, cursor) => {
 const requestAnnouncement = async (user, submission) => {
   // Send the approver a direct message with "Approve" and "Reject" buttons 
   let res = await callAPIMethodPost('conversations.open', {
-    users: submission.approver
+    channel: 'C03MDHWFC9M'
   })
   submission.requester = user.id;
   submission.channel = res.channel.id;
