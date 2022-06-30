@@ -57,6 +57,28 @@ app.post('/events', (req, res) => {
 });
 
 /*
+ * Endpoint to receive /announce slash command from Slack.
+ * Checks verification token and opens a dialog to capture more info.
+ */
+app.post('/command', async (req, res) => {
+  // Verify the signing secret
+  if (!signature.isVerified(req)) {
+    debug('Verification token mismatch');
+    return res.status(404).send();
+  }
+
+  // extract the slash command text, and trigger ID from payload
+  const { trigger_id } = req.body;
+
+  await api.callAPIMethodPost('views.open', {
+    trigger_id: trigger_id,
+    view: payloads.request_announcement()
+  });
+
+  return res.send('');
+});
+
+/*
  * Endpoint to receive events from interactive message and a dialog on Slack. 
  * Verify the signing secret before continuing.
  */
